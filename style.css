@@ -245,7 +245,7 @@ body {
 /* Hover effect */
 
 .menu-links a:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(165, 175, 231, 0.899));
 
     padding-left: 16px;
 }
