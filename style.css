@@ -1,31 +1,292 @@
-/* Algemene instellingen */
+/* =========================
+   BASIS
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html,
 body {
-    background-color: white;
+    width: 100%;
+    min-height: 100%;
 }
 
-/* Zwarte balk bovenaan */
+body {
+    font-family: "EB Garamond", serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   GEBLURDE ACHTERGROND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(5px);
+
+    /* zorgt dat de blur niet tegen de randen
+       een wit randje veroorzaakt */
+    transform: scale(1.05);
+
+    z-index: -2;
+}
+
+
+/* donkere laag over de afbeelding */
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   ZWARTE BALK
+========================= */
+
 .top-bar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 55px;
-    background-color: #000000;
+
+    background-color: #000;
 
     display: flex;
     align-items: center;
 
     padding-left: 20px;
+
+    z-index: 10;
 }
 
-/* @littledesiresq⋆˙⟡ */
+
+/* Logo */
+
 .logo {
     color: white;
+
     font-family: "EB Garamond", serif;
+
     font-size: 22px;
     font-weight: 400;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================
+   HOOFDINHOUD
+========================= */
+
+.content {
+    min-height: 100vh;
+
+    padding-top: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+/* =========================
+   CENTRAAL TEKSTBLOK
+========================= */
+
+.text-box {
+    width: min(600px, 90vw);
+
+    min-height: 330px;
+
+    padding: 45px;
+
+    background: rgba(0, 0, 0, 0.68);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+
+/* Titel */
+
+.text-box h1 {
+    font-size: 42px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+
+    outline: none;
+}
+
+
+/* Tekst */
+
+.text-box p {
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    outline: none;
+}
+
+
+/* Laat zien welk tekstveld geselecteerd is */
+
+.text-box [contenteditable="true"]:focus {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================
+   MENU VENSTER
+========================= */
+
+.menu-window {
+    width: 190px;
+
+    padding: 25px 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Menu titel */
+
+.menu-title {
+    font-size: 25px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* Menu links */
+
+.menu-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.menu-links a {
+    color: white;
+
     text-decoration: none;
+
+    font-family: "EB Garamond", serif;
+
+    font-size: 20px;
+
+    padding: 8px 10px;
+
+    border-radius: 10px;
+
+    transition:
+        background-color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+
+/* Hover effect */
+
+.menu-links a:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    padding-left: 16px;
+}
+
+
+/* =========================
+   MOBIEL
+========================= */
+
+@media (max-width: 750px) {
+
+    .content {
+        flex-direction: column;
+
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .text-box {
+        padding: 30px 25px;
+
+        min-height: auto;
+    }
+
+    .text-box h1 {
+        font-size: 34px;
+    }
+
+    .text-box p {
+        font-size: 19px;
+    }
+
+    .menu-window {
+        width: min(600px, 90vw);
+    }
+
+    .menu-links {
+        flex-direction: row;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
 }
