@@ -125,7 +125,7 @@ body {
 
     padding: 45px;
 
-    background: rgba(128, 192, 234, 0.68)8);
+    background: rgba(128, 192, 234, 0.68);
 
     border: 1px solid rgba(255, 255, 255, 0.25);
 
@@ -245,7 +245,7 @@ body {
 /* Hover effect */
 
 .menu-links a:hover {
-    background: rgba(165, 175, 231, 0.899));
+    background: rgba(102, 114, 188, 0.752);
 
     padding-left: 16px;
 }
